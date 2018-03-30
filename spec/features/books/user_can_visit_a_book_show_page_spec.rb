@@ -13,7 +13,7 @@ describe 'User' do
     end
 
     scenario 'see a list of reviews for that book and their ratings' do
-      visit book_show_path
+      visit book_path(@book)
 
       expect(page).to have_content(@book.name)
       expect(page).to have_content(@review_one.rating)
