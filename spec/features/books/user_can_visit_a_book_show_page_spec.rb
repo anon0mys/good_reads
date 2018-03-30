@@ -26,15 +26,27 @@ describe 'User' do
     end
 
     scenario 'see the average rating for the book' do
+      visit book_path(@book)
 
+      expect(page).to have_content('Average Rating: 2.7')
     end
 
     scenario 'see the highest rating for the book' do
+      visit book_path(@book)
 
+      expect(page).to have_content("Highest Rating: #{@review_one.rating}")
+      within '.highest-header' do
+        expect(page).to have_content(@review_one.body)
+      end
     end
 
     scenario 'see the lowest rating for the book' do
+      visit book_path(@book)
 
+      expect(page).to have_content("Lowest Rating: #{@review_three.rating}")
+      within '.lowest-header' do
+        expect(page).to have_content(@review_three.body)
+      end
     end
   end
 end
