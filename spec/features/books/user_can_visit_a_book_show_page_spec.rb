@@ -7,9 +7,9 @@ describe 'User' do
       @user_one = User.create(name: 'User_1')
       @user_two = User.create(name: 'User_2')
       @user_three = User.create(name: 'User_3')
-      @review_one = Rating.create(book: @book, user: @user_one, rating: 4, body: 'Review 1')
-      @review_two = Rating.create(book: @book, user: @user_two, rating: 3, body: 'Review 2')
-      @review_three = Rating.create(book: @book, user: @user_three, rating: 1, body: 'Review 3')
+      @review_one = Rating.create(book_id: @book.id, user_id: @user_one.id, rating: 4, body: 'Review 1')
+      @review_two = Rating.create(book_id: @book.id, user_id: @user_two.id, rating: 3, body: 'Review 2')
+      @review_three = Rating.create(book_id: @book.id, user_id: @user_three.id, rating: 1, body: 'Review 3')
     end
 
     scenario 'see a list of reviews for that book and their ratings' do
